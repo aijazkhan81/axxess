@@ -17,16 +17,16 @@ function runCounter(){
             counter++;
             $('#counter').val(counter);
             if(counter % 3 === 0){
-            	toe.addClass('newclass');
-            }
-            else{
-            	toe.removeClass('newclass');
-            };
-            if(counter % 5 === 0){
             	finger.addClass('newclass');
             }
             else{
             	finger.removeClass('newclass');
+            };
+            if(counter % 5 === 0){
+            	toe.addClass('newclass');
+            }
+            else{
+            	toe.removeClass('newclass');
             };
             if((counter % 3 === 0) && (counter % 5 === 0)){
             	toe.addClass('newclass');
