@@ -1,5 +1,5 @@
 var zero = 0;
-$('#number').val(zero);
+// $('#number').val(zero);
 $('#counter').val(zero);
 var show = $('#show');
 var reset = $('#reset');
@@ -8,7 +8,7 @@ var finger = $('#finger');
 var countUp = null;
 
 function runCounter(){
-    $('#counter').val(zero);
+    // $('#counter').val(zero);
     var run = function(){
         var number = Number($('#number').val());
         var counter = Number($('#counter').val());
@@ -17,25 +17,25 @@ function runCounter(){
             counter++;
             $('#counter').val(counter);
             if(counter % 3 === 0){
-            	finger.addClass('newclass');
+            	finger.addClass('highlight');
             }
             else{
-            	finger.removeClass('newclass');
+            	finger.removeClass('highlight');
             };
             if(counter % 5 === 0){
-            	toe.addClass('newclass');
+            	toe.addClass('highlight');
             }
             else{
-            	toe.removeClass('newclass');
+            	toe.removeClass('highlight');
             };
             if((counter % 3 === 0) && (counter % 5 === 0)){
-            	toe.addClass('newclass');
-            	finger.addClass('newclass');
+            	toe.addClass('highlight');
+            	finger.addClass('highlight');
             }
         } else {
             clearInterval(countUp);
-            finger.removeClass('newclass');
-            toe.removeClass('newclass');
+            finger.removeClass('highlight');
+            toe.removeClass('highlight');
         }
     };
     
