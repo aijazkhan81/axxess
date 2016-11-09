@@ -1,5 +1,6 @@
 *{
-	font-family: 'Anton', sans-serif;
+	font-family: 'Signika', sans-serif;
+	font-weight: 700 !important;
 	text-align: center;
 	font-size: 4vw;
 	box-sizing:border-box;
@@ -21,6 +22,11 @@
 
 body{
 	background: @bluish;
+	margin: 0;
+	
+	.title{
+		display: none;
+	}
 
 	#container{
 		width: 80%;
@@ -41,6 +47,7 @@ body{
 
 		input[type="number"]{
 			font-size: 60px;
+			border: 0;
 
 			&::-webkit-inner-spin-button, ::-webkit-outer-spin-button { 
 				-webkit-appearance: none; 
@@ -54,7 +61,7 @@ body{
 			border: 2px solid darken(@bluish, 10%);
 			transition: background 0.2s, border 0.2s, color 0.2s;
 
-			&:hover{
+			&:hover, &:focus{
 				background: darken(@bluish, 10%);
 				border: 2px solid darken(@bluish, 5%);
 				color: white;
@@ -69,7 +76,7 @@ body{
 	color: black !important; 
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 641px){
 	*{
 		font-size: 25px !important;
 	}
@@ -85,4 +92,17 @@ body{
 			padding: 15px 0 !important;
 		}
 	}	
+}
+
+@media screen and(min-width: 1024px){
+	.centered {
+	  position: fixed;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	}
+
+	.title{
+		display: block !important;
+	}
 }
