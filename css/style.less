@@ -1,12 +1,86 @@
 *{
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Anton', sans-serif;
+	text-align: center;
+	font-size: 4vw;
+	box-sizing:border-box;
+	outline: none;
+	letter-spacing: 3px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none; 
+	-moz-user-select: none; 
+	-ms-user-select: none; 
+	user-select: none; 
+}
+
+@bluish: #3F70D4;
+
+body{
+	background: @bluish;
+
+	#container{
+		width: 80%;
+		margin: auto;
+
+		#finger,#toe{
+			background: darken(@bluish, 5%);
+			border: 2px solid transparent;
+			padding: 30px 0;
+			color: white; 
+			-webkit-transition: background 0.2s;
+			transition: background 0.2s, border 0.2s, color 0.2s;
+		}
+
+		.col-left{
+			float: left;
+			width: 45%;
+			margin: 1% 2%;
+		}
+
+		input[type="number"]{
+			font-size: 60px;
+
+			&::-webkit-inner-spin-button, ::-webkit-outer-spin-button { 
+				-webkit-appearance: none; 
+				margin: 0; 
+			}
+		}
+
+		button{
+			background: darken(@bluish, 5%);
+			cursor: pointer;
+			border: 2px solid darken(@bluish, 10%);
+			transition: background 0.2s, border 0.2s, color 0.2s;
+
+			&:hover{
+				background: darken(@bluish, 10%);
+				border: 2px solid darken(@bluish, 5%);
+				color: white;
+			}
+		}
+	}
 }
 
 .newclass{
-	font-weight: bold;
-	font-size: 25px;
+	background: darken(@bluish, 10%) !important;
+	border: 2px solid darken(@bluish, 5%) !important;
+	color: black !important; 
+	-webkit-transition: background 0.2s;
+	transition: background 0.2s, border 0.2s, color 0.2s;
 }
 
-#toe{
-	color: red;
+@media screen and (max-width: 768px){
+	*{
+		font-size: 25px !important;
+	}
+
+	#container{
+		width: 95% !important;
+
+		.col-left{
+			width: 100% !important;
+			float: none !important;
+			margin: 2% 0 !important;
+			padding: 15px 0 !important;
+		}
+	}	
 }

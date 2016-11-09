@@ -13,6 +13,7 @@ function runCounter(){
         var number = Number($('#number').val());
         var counter = Number($('#counter').val());
         if(counter < number) {
+        	show.text("Restart");	
             counter++;
             $('#counter').val(counter);
             if(counter % 3 === 0){
@@ -33,14 +34,15 @@ function runCounter(){
             }
         } else {
             clearInterval(countUp);
+            finger.removeClass('newclass');
+            toe.removeClass('newclass');
         }
     };
-    //check if an interval is already running if yes clear it
+    
     if (countUp != null) {
         clearInterval(countUp);
-    }
-    countUp = setInterval(run, 500);
-    show.text("Restart");
+    };
+    countUp = setInterval(run, 1000);
 };
 
 show.click(runCounter);
@@ -48,4 +50,5 @@ show.click(runCounter);
 reset.click(function(){
     $('#number').val(zero);
     $('#counter').val(zero);
+    show.text("Start");
 });
