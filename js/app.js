@@ -9,6 +9,7 @@ var zero = 0,
 cntr.val(zero);
 
 function runCounter(){
+	cntr.val(zero);
     var run = function(){
     	var number = Number(bnum.val());
     	var counter = Number(cntr.val());
