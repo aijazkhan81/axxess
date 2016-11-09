@@ -1,24 +1,51 @@
-var initialNumber = 10;
 var zero = 0;
-$('#number').val(initialNumber);
+$('#number').val(zero);
 $('#counter').val(zero);
-var number = Number($('#number').val());
-var counter = Number($('#counter').val());
 var show = $('#show');
+var reset = $('#reset');
+var toe = $('#toe');
+var finger = $('#finger');
+var countUp = null;
 
-console.log('initial value of number is ' + number);
-console.log(typeof number);
-console.log('initial value of counter is ' + counter);
+function runCounter(){
+    $('#counter').val(zero);
+    var run = function(){
+        var number = Number($('#number').val());
+        var counter = Number($('#counter').val());
+        if(counter < number) {
+            counter++;
+            $('#counter').val(counter);
+            if(counter % 3 === 0){
+            	toe.addClass('newclass');
+            }
+            else{
+            	toe.removeClass('newclass');
+            };
+            if(counter % 5 === 0){
+            	finger.addClass('newclass');
+            }
+            else{
+            	finger.removeClass('newclass');
+            };
+            if((counter % 3 === 0) && (counter % 5 === 0)){
+            	toe.addClass('newclass');
+            	finger.addClass('newclass');
+            }
+        } else {
+            clearInterval(countUp);
+        }
+    };
+    //check if an interval is already running if yes clear it
+    if (countUp != null) {
+        clearInterval(countUp);
+    }
+    countUp = setInterval(run, 500);
+    show.text("Restart");
+};
 
-show.click(function(){
-	var varName = function(){
-		if(counter < number) {
-			counter++;
-			console.log(counter);
-			$('#counter').val(counter);
-		} else {
-			clearInterval(varName);
-		}
-	};
-	setInterval(varName, 500);
+show.click(runCounter);
+
+reset.click(function(){
+    $('#number').val(zero);
+    $('#counter').val(zero);
 });
